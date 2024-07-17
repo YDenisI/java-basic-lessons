@@ -1,6 +1,5 @@
 package ru.gpncr.java.basic.lessons;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class HomeWork {
@@ -71,7 +70,7 @@ public class HomeWork {
         if (n <= 0){
             System.out.println("Так как в задании требуется увеличить элемент на число, то значение параметра не может быть отрицательным. Значение первого параметра  <= 0. Выход");
             return ;
-        };
+        }
         for (int i = 0; i < array.length; i++) {
             array[i] += n;
         }
