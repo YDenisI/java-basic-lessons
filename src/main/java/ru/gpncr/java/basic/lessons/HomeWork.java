@@ -18,18 +18,10 @@ public class HomeWork {
 //-----------------------------------------
         System.out.println("\n3. Реализуйте метод, принимающий в качестве аргументов целое число и ссылку на целочисленный массив, метод должен заполниться каждую ячейку массива указанным числом.");
         int[] array_2  = new int[10];
-        int param_2 = 6;
+        int param_2 = -2;
         System.out.println("Входные данные:("+param_2+","+Arrays.toString(array_2)+")");
         addValueArray(param_2,array_2);
-        System.out.println("Результат после выполнения метода:");
-        System.out.print("[");
-        for (int i = 0; i < array_2.length; i++) {
-             if (i < array_2.length-1)
-                System.out.print(array_2[i] + ",");
-            else
-                System.out.print(array_2[i]);
-        }
-        System.out.println("]");
+        System.out.println("Результат после выполнения метода:\n"+Arrays.toString(array_2));
 //-----------------------------------------
         System.out.println("\n4. Реализуйте метод, принимающий в качестве аргументов целое число и ссылку на целочисленный массив, увеличивающий каждый элемент которого на указанное число.");
         int[] array_3  = new int[] {7, -2, 14, 1};
@@ -46,8 +38,8 @@ public class HomeWork {
         }
         System.out.println("]");
 //-----------------------------------------
-        System.out.println("\n5. -Реализуйте метод, принимающий в качестве аргумента целочисленный массив, и печатающий в консоль сумма элементов какой из половин массива больше.");
-        int[] array_4  = new int[] {7, -1, 14, 1};
+        System.out.println("\n5. Реализуйте метод, принимающий в качестве аргумента целочисленный массив, и печатающий в консоль сумма элементов какой из половин массива больше.");
+        int[] array_4  = new int[] {7, -1, 14, 1, 15,-5};
         System.out.println("Входные данные:"+Arrays.toString(array_4));
         sumPartsArray(array_4);
     }
@@ -66,41 +58,23 @@ public class HomeWork {
         for (int i = 0; i < array.length; i++) {
               if (array[i] > 5) sum+=array[i];
         }
-        System.out.println("Сумма элементов массива: "+sum);
+        System.out.println("Сумма элементов массива > 5 равна : "+sum);
     }
 
     public static void addValueArray(int n, int[] array) {
-        if (n <= 0){
-            System.out.println("Значение первого параметра  <= 0. Выход");
-            return ;
-        };
-//        System.out.println("\nРезультат:");
-//        System.out.print("[");
         for (int i = 0; i < array.length; i++) {
             array[i] = n;
-  /*          if (i < array.length-1)
-                System.out.print(array[i] + ",");
-            else
-                System.out.print(array[i]);*/
         }
-      //  System.out.print("]");
     }
 
     public static void changeValueArray(int n, int[] array) {
         if (n <= 0){
-            System.out.println("Значение первого параметра  <= 0. Выход");
+            System.out.println("Так как в задании требуется увеличить элемент на число, то значение параметра не может быть отрицательным. Значение первого параметра  <= 0. Выход");
             return ;
         };
-//        System.out.println("\nРезультат:");
-//        System.out.print("[");
         for (int i = 0; i < array.length; i++) {
             array[i] += n;
-  /*          if (i < array.length-1)
-                System.out.print(array[i] + ",");
-            else
-                System.out.print(array[i]);*/
         }
-        //  System.out.print("]");
     }
 
     public static void sumPartsArray(int[] array) {
