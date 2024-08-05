@@ -2,6 +2,22 @@ package ru.gpncr.java.basic.lessons;
 
 public class HomeWork {
     public static void main(String[] args) {
-        System.out.println("HomeWork");
+        Cat cat = new Cat("Mur", 3, 7, 21);
+
+        cat.run(20);
+        cat.run(1);
+        cat.run(1);
+        cat.info();
+        cat.swim(33);
+        cat.endurance = 21;
+        cat.run(20);
+        cat.info();
+
+        Dog dog = new Dog("Jack", 10, 15, 200);
+
+        dog.info();
+        dog.swim(100);
+        dog.info();
+        dog.swim(100);
     }
 }
