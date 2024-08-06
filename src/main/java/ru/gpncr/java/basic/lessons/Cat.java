@@ -3,19 +3,12 @@ package ru.gpncr.java.basic.lessons;
 
 public class Cat extends Animal {
 
+    public static final int EXPENSES_SWIM = 0;
+    public static final int EXPENSES_RUN = 1;
 
     public Cat(String name, double swimSpeed, double runSpeed, int endurance) {
-        super(name, swimSpeed, runSpeed, endurance);
-    }
-
-    @Override
-    public String getChildClass() {
-        return "Кошка";
-    }
-
-    @Override
-    public double swim(int distance) {
-        System.out.println("Кошки плавать не умеют");
-        return -1;
+        super(name, swimSpeed, runSpeed, endurance, "Кот");
+        swimEnduranceCosts = EXPENSES_SWIM;
+        runEnduranceCosts = EXPENSES_RUN;
     }
 }

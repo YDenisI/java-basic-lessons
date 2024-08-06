@@ -13,10 +13,10 @@ public class HomeWork {
         cat.run(20);
         cat.info();
 
-        Dog dog = new Dog("Jack", 10, 15, 200);
+        Dog dog = new Dog("Jack", 10, 15, 300);
 
         dog.info();
-        dog.swim(100);
+        dog.run(100);
         dog.info();
         dog.swim(100);
     }
