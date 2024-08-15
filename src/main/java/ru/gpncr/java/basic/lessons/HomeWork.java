@@ -2,15 +2,21 @@ package ru.gpncr.java.basic.lessons;
 
 public class HomeWork {
     public static void main(String[] args) {
-        Transport car = new Car(10);
+        Transport car = new Car(10, "Nissan");
         Transport horse = new Horse(10);
         Transport terranVehicle = new TerrainVehicle(100);
         Transport bike = new Bike(26);
 
         Human human = new Human("Jack");
+        human.upTransport(car);
         human.downTransport(car);
         human.downTransport(bike);
+        Transport car1 = new Car(10, "Toyota");
+        human.upTransport(bike);
         human.printInfo();
+        human.upTransport(car1);
+        human.upTransport(null);
+      /*  human.printInfo();
         System.out.println(((Car) car).getFuel());
         human.move(30, Terrain.PLAIN);
         human.move(30, Terrain.PLAIN);
@@ -39,7 +45,7 @@ public class HomeWork {
         human.downTransport(horse);
         human.move(30, Terrain.DENSE_FOREST);
         human.move(30, Terrain.SWAMP);
-        human.move(30, Terrain.PLAIN);
+        human.move(30, Terrain.PLAIN);*/
 
     }
 }

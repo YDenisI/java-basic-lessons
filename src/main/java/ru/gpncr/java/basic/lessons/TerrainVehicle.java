@@ -52,4 +52,9 @@ public class TerrainVehicle implements Transport {
     public String getType() {
         return TERRAIN_VEHICLE;
     }
+
+    @Override
+    public String getBrand() {
+        return null;
+    }
 }

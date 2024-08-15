@@ -46,4 +46,9 @@ public class Horse implements Transport {
     public String getType() {
         return HORSE;
     }
+
+    @Override
+    public String getBrand() {
+        return null;
+    }
 }

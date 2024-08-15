@@ -10,13 +10,25 @@ public class Human {
     }
 
     public void upTransport(Transport transport) {
-        if (currentTransport != null && currentTransport.getType().equalsIgnoreCase(transport.getType())) {
+
+        if (transport == null) {
+            System.out.println(name + " не может встать с транспорта ");
+            return;
+        }
+        if (currentTransport != null && currentTransport.equals(transport)) {
             System.out.println(name + " встал с транспорта: " + transport.getType());
             this.currentTransport = null;
         } else {
+
+
             System.out.println(name +
-                    (currentTransport != null ? (" не может встать с транспорта: " + transport.getType() + ". Текущий транспорт: " + currentTransport.getType()) :
-                            " не передвигается на транспорте "));
+                    (currentTransport != null
+                            ? (" не может встать с транспорта: " + transport.getType() +
+                            (transport.getBrand() != null ? ", Марка " + transport.getBrand() : "")
+                            + ". Текущий транспорт: " + currentTransport.getType() +
+                            (currentTransport.getBrand() != null ? ", Марка " + currentTransport.getBrand()
+                                    : ""))
+                            : " не передвигается на транспорте "));
         }
     }
 

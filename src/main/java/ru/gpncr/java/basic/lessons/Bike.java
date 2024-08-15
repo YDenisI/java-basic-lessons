@@ -45,4 +45,9 @@ public class Bike implements Transport {
     public String getType() {
         return BIKE;
     }
+
+    @Override
+    public String getBrand() {
+        return null;
+    }
 }

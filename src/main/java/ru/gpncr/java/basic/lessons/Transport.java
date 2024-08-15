@@ -5,4 +5,6 @@ public interface Transport {
     boolean move(int distance, Terrain terrain);
 
     String getType();
+
+    String getBrand();
 }

@@ -3,21 +3,28 @@ package ru.gpncr.java.basic.lessons;
 public class Car implements Transport {
 
     private double fuel;
+    private String brande;
+
     private static final int CAPACITY = 60;
     private static final String CAR = "Машина";
     private static final double USAGE_FUEL = 10;
 
-    public Car(int fuel) {
+    public Car(int fuel, String brand) {
         if (fuel < CAPACITY) {
             this.fuel = fuel;
         } else {
             this.fuel = CAPACITY;
             System.out.println("Машина заправлена полностью, вместимость бака " + CAPACITY + " литров");
         }
+        this.brande = brand;
     }
 
     public double getFuel() {
         return fuel;
+    }
+
+    public String getBrande() {
+        return brande;
     }
 
     public void setFuel(double fuel) {
@@ -58,5 +65,9 @@ public class Car implements Transport {
         return CAR;
     }
 
+    @Override
+    public String getBrand() {
+        return brande;
+    }
 
 }
