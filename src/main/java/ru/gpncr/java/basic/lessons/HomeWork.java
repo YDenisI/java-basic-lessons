@@ -5,10 +5,12 @@ public class HomeWork {
         Transport car = new Car(10, "Nissan");
         Transport horse = new Horse(10);
         Transport terranVehicle = new TerrainVehicle(100);
-        Transport bike = new Bike(26);
+        Transport bike = new Bike();
 
-        Human human = new Human("Jack");
-        human.upTransport(car);
+        Human human = new Human("Jack", 30);
+        human.downTransport(bike);
+        human.move(30, Terrain.PLAIN);
+        human.move(30, Terrain.PLAIN);
         human.downTransport(car);
         human.downTransport(bike);
         Transport car1 = new Car(10, "Toyota");

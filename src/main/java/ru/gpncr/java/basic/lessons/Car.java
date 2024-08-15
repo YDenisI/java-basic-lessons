@@ -1,13 +1,12 @@
 package ru.gpncr.java.basic.lessons;
 
 public class Car implements Transport {
-
-    private double fuel;
-    private String brande;
-
     private static final int CAPACITY = 60;
     private static final String CAR = "Машина";
     private static final double USAGE_FUEL = 10;
+    
+    private double fuel;
+    private String brande;
 
     public Car(int fuel, String brand) {
         if (fuel < CAPACITY) {
