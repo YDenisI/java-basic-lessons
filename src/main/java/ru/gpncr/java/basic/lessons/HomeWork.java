@@ -56,7 +56,10 @@ public class HomeWork {
             System.out.println(emp.getName() + " Age: " + emp.getAge());
         }
         System.out.println("6. Реализуйте метод, принимающий в качестве аргумента список сотрудников и минимальный средний возраст, и проверяющий что средний возраст сотрудников превышает указанный аргумент ");
-        isAverageAgeGreater(listEmploees, 15);
+        System.out.println("Результат: ");
+        if (isAverageAgeGreater(listEmploees, 15)) {
+            System.out.println("Средний возраст сотрудников превышает аргумент " + 15);
+        }
         System.out.println("7. Реализуйте метод, принимающий в качестве аргумента список сотрудников, и возвращающий ссылку на самого молодого сотрудника ");
         System.out.println("Результат: ");
         Employee emp = getYoungEmployee(listEmploees);
@@ -146,11 +149,11 @@ public class HomeWork {
         return lsEmployees;
     }
 
-    public static void isAverageAgeGreater(List<Employee> ls, double middleAge) {
+    public static boolean isAverageAgeGreater(List<Employee> ls, double middleAge) {
 
         if (ls == null || ls.isEmpty()) {
             System.out.println("Список сотрудников пуст");
-            return;
+            return false;
         }
         double middleAgeEmployees = 0;
         for (Iterator iterator = ls.iterator(); iterator.hasNext(); ) {
@@ -158,11 +161,7 @@ public class HomeWork {
             middleAgeEmployees += emp.getAge();
         }
 
-        if ((middleAgeEmployees / ls.size()) > middleAge) {
-            System.out.println("Средний возраст сотрудников равен " + (middleAgeEmployees / ls.size()) + " и превышает  аргумент " + middleAge);
-        } else {
-            System.out.println("Средний возраст сотрудников равен " + (middleAgeEmployees / ls.size()) + " и не превышает  аргумент " + middleAge);
-        }
+        return ((middleAgeEmployees / ls.size()) > middleAge) ? true : false;
     }
 
     public static Employee getYoungEmployee(List<Employee> ls) {
