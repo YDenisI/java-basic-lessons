@@ -14,10 +14,10 @@ public class HomeWork {
             ls.add((int) (Math.random() * 28 - 16));
         }
 
-        System.out.println("2. Сумма элементов списка " + ls + " больше 5 равно " + sumElementsList(ls));
+        System.out.println("2. Сумма элементов списка " + ls + " больше 5 равно " + sumElementsList(null));
         System.out.println("3. Реализуйте метод, принимающий в качестве аргументов целое число и ссылку на список, метод должен переписать каждую заполненную ячейку списка указанным числом ");
         System.out.println("Список \nбыло- " + ls);
-        rewriteElementsList(ls, 44);
+        rewriteElementsList(null, 44);
         System.out.println("стало - " + ls);
         System.out.println("4. Реализуйте метод, принимающий в качестве аргументов целое число и ссылку на список, увеличивающий каждый элемент списка на указанное число ");
         ls = new ArrayList<>();
@@ -25,7 +25,7 @@ public class HomeWork {
             ls.add((int) (Math.random() * 28 - 16));
         }
         System.out.println("Список \nбыло- " + ls);
-        increaseElementsList(ls, 10);
+        increaseElementsList(null, 10);
         System.out.println("стало - " + ls);
 
         Employee emp1 = new Employee("Jack", 15);
@@ -45,22 +45,24 @@ public class HomeWork {
             System.out.println("Name: " + emp.getName() + " Age: " + emp.getAge());
         }
 
-        System.out.println("4. Реализуйте метод, принимающий в качестве аргумента список сотрудников, и возвращающий список их имен; ");
+        System.out.println("5. Реализуйте метод, принимающий в качестве аргумента список сотрудников, и возвращающий список их имен; ");
         System.out.println(" Результат - " + getNameEployees(listEmploees));
 
-        System.out.println("5. Реализуйте метод, принимающий в качестве аргумента список сотрудников и минимальный возраст, и возвращающий список сотрудников, возраст которых больше либо равен указанному аргументу ");
-        List employees = filterEmployeesByAge(listEmploees, 20);
-        System.out.println("Результат");
-        for (Iterator iterator = employees.iterator(); iterator.hasNext(); ) {
-            Employee emp = (Employee) iterator.next();
-            System.out.println(emp.getName() + " Age: " + emp.getAge());
+        System.out.println("6. Реализуйте метод, принимающий в качестве аргумента список сотрудников и минимальный возраст, и возвращающий список сотрудников, возраст которых больше либо равен указанному аргументу ");
+        List<Employee> employees = filterEmployeesByAge(listEmploees, 20);
+        if (employees != null) {
+            System.out.println("Результат");
+            for (Employee emp : employees) {
+                System.out.println(emp.getName() + " Age: " + emp.getAge());
+            }
         }
-        System.out.println("6. Реализуйте метод, принимающий в качестве аргумента список сотрудников и минимальный средний возраст, и проверяющий что средний возраст сотрудников превышает указанный аргумент ");
+
+        System.out.println("7. Реализуйте метод, принимающий в качестве аргумента список сотрудников и минимальный средний возраст, и проверяющий что средний возраст сотрудников превышает указанный аргумент ");
         System.out.println("Результат: ");
         if (isAverageAgeGreater(listEmploees, 15)) {
             System.out.println("Средний возраст сотрудников превышает аргумент " + 15);
         }
-        System.out.println("7. Реализуйте метод, принимающий в качестве аргумента список сотрудников, и возвращающий ссылку на самого молодого сотрудника ");
+        System.out.println("8. Реализуйте метод, принимающий в качестве аргумента список сотрудников, и возвращающий ссылку на самого молодого сотрудника ");
         System.out.println("Результат: ");
         Employee emp = getYoungEmployee(listEmploees);
         if (emp != null) {
@@ -69,10 +71,7 @@ public class HomeWork {
     }
 
     public static ArrayList<Double> fillList(double min, double max) {
-        if (max <= min) {
-            System.out.println("Максимальное число (второй аргумент метода) меньше, либо равно минимального числа (первый аргумент метода)");
-            return null;
-        }
+
         ArrayList<Double> ls = new ArrayList<>();
         for (double i = min; i <= max; i++) {
             ls.add(i);
@@ -83,10 +82,7 @@ public class HomeWork {
     public static int sumElementsList(List<Integer> ls) {
         int sum = 0;
 
-        if (ls == null || ls.isEmpty()) {
-            System.out.println("Список сотрудников пуст");
-            return sum;
-        }
+        if (Utils.checkNullAndEmptyList(ls)) return sum;
 
         for (Iterator<Integer> iterator = ls.iterator(); iterator.hasNext(); ) {
             int elem = iterator.next();
@@ -97,9 +93,8 @@ public class HomeWork {
         return sum;
     }
 
-    public static void rewriteElementsList(List ls, int count) {
-        if (ls == null || ls.isEmpty()) {
-            System.out.println("Список сотрудников пуст");
+    public static void rewriteElementsList(List<Integer> ls, int count) {
+        if (Utils.checkNullAndEmptyList(ls)) {
             return;
         }
         for (int i = 0; i < ls.size(); i++) {
@@ -108,8 +103,7 @@ public class HomeWork {
     }
 
     public static void increaseElementsList(List<Integer> ls, int count) {
-        if (ls == null || ls.isEmpty()) {
-            System.out.println("Список сотрудников пуст");
+        if (Utils.checkNullAndEmptyList(ls)) {
             return;
         }
         for (int i = 0; i < ls.size(); i++) {
@@ -119,31 +113,27 @@ public class HomeWork {
 
     public static List<String> getNameEployees(List<Employee> ls) {
 
-        if (ls == null || ls.isEmpty()) {
-            System.out.println("Список сотрудников пуст");
+        if (Utils.checkNullAndEmptyList(ls)) {
             return null;
         }
         List<String> lsName = new ArrayList<>();
 
-        for (Iterator iterator = ls.iterator(); iterator.hasNext(); ) {
-            Employee emp = (Employee) iterator.next();
-            lsName.add(emp.getName());
+        for (Employee employee : ls) {
+            lsName.add(employee.getName());
         }
         return lsName;
     }
 
     public static List<Employee> filterEmployeesByAge(List<Employee> ls, double age) {
 
-        if (ls == null || ls.isEmpty()) {
-            System.out.println("Список сотрудников пуст");
+        if (Utils.checkNullAndEmptyList(ls)) {
             return null;
         }
         List<Employee> lsEmployees = new ArrayList<>();
 
-        for (Iterator iterator = ls.iterator(); iterator.hasNext(); ) {
-            Employee emp = (Employee) iterator.next();
-            if (emp.getAge() >= age) {
-                lsEmployees.add(emp);
+        for (Employee employee : ls) {
+            if (employee.getAge() >= age) {
+                lsEmployees.add(employee);
             }
         }
         return lsEmployees;
@@ -151,8 +141,7 @@ public class HomeWork {
 
     public static boolean isAverageAgeGreater(List<Employee> ls, double middleAge) {
 
-        if (ls == null || ls.isEmpty()) {
-            System.out.println("Список сотрудников пуст");
+        if (Utils.checkNullAndEmptyList(ls)) {
             return false;
         }
         double middleAgeEmployees = 0;
@@ -166,8 +155,7 @@ public class HomeWork {
 
     public static Employee getYoungEmployee(List<Employee> ls) {
 
-        if (ls == null || ls.isEmpty()) {
-            System.out.println("Список сотрудников пуст");
+        if (Utils.checkNullAndEmptyList(ls)) {
             return null;
         }
         Employee employee = ls.get(0);
