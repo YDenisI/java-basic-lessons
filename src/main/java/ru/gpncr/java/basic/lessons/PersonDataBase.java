@@ -20,17 +20,18 @@ public class PersonDataBase {
     }
 
     public boolean isManager(Person person) {
+        if (person == null) return false;
         Position position = person.getPosition();
-        return position == Position.MANAGER || position == Position.DIRECTOR ||
-                position == Position.BRANCH_DIRECTOR || position == Position.SENIOR_MANAGER;
+        return (position == Position.MANAGER) || (position == Position.DIRECTOR) ||
+                (position == Position.BRANCH_DIRECTOR) || (position == Position.SENIOR_MANAGER);
     }
 
     public boolean isEmployee(Long id) {
         Person person = findById(id);
         if (person != null) {
             Position position = person.getPosition();
-            return position != Position.MANAGER && position != Position.DIRECTOR &&
-                    position != Position.BRANCH_DIRECTOR && position != Position.SENIOR_MANAGER;
+            return (position != Position.MANAGER) && (position != Position.DIRECTOR) &&
+                    (position != Position.BRANCH_DIRECTOR) && (position != Position.SENIOR_MANAGER);
         }
         return false;
     }

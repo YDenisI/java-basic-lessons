@@ -11,7 +11,9 @@ public class HomeWork {
         dataBase.add(person2);
 
         System.out.println(dataBase.findById(1L).getName());
-        System.out.println(dataBase.isManager(person1));
-        System.out.println(dataBase.isEmployee(2L));
+        System.out.println("Person1 is manager? - " + dataBase.isManager(person1));
+        System.out.println("Person2 is manager? - " + dataBase.isManager(person2));
+        System.out.println("Emploee with id = 1L is employee? - ? - " + dataBase.isEmployee(2L));
+        System.out.println("Emploee with id = 2L is employee? - " + dataBase.isEmployee(1L));
     }
 }
