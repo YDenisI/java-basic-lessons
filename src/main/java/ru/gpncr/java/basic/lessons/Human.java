@@ -11,26 +11,13 @@ public class Human {
         this.strength = strength;
     }
 
-    public void upTransport(Transport transport) {
+    public void upTransport() {
 
-        if (transport == null) {
-            System.out.println(name + " не может встать с транспорта ");
-            return;
-        }
-        if (currentTransport != null && currentTransport.equals(transport)) {
-            System.out.println(name + " встал с транспорта: " + transport.getType());
+        if (currentTransport != null) {
+            System.out.println(name + " встал с транспорта: ");
             this.currentTransport = null;
         } else {
-
-
-            System.out.println(name +
-                    (currentTransport != null
-                            ? (" не может встать с транспорта: " + transport.getType() +
-                            (transport.getBrand() != null ? ", Марка " + transport.getBrand() : "")
-                            + ". Текущий транспорт: " + currentTransport.getType() +
-                            (currentTransport.getBrand() != null ? ", Марка " + currentTransport.getBrand()
-                                    : ""))
-                            : " не передвигается на транспорте "));
+            System.out.println("Человек не сидит ни на чем");
         }
     }
 

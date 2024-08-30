@@ -14,10 +14,10 @@ public class HomeWork {
         human.downTransport(car);
         human.downTransport(bike);
         Transport car1 = new Car(10, "Toyota");
-        human.upTransport(bike);
+        human.upTransport();
         human.printInfo();
-        human.upTransport(car1);
-        human.upTransport(null);
+        human.upTransport();
+        human.upTransport();
       /*  human.printInfo();
         System.out.println(((Car) car).getFuel());
         human.move(30, Terrain.PLAIN);
