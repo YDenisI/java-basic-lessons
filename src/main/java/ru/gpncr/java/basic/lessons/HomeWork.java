@@ -43,6 +43,7 @@ public class HomeWork {
                 return;
             }
 
+
             System.out.println("\n\nВведите строки для записи в файл (для выхода введите 'exit'):");
             String line;
             while (true) {
