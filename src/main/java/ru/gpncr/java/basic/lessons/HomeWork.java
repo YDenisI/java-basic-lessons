@@ -23,7 +23,7 @@ public class HomeWork {
         long endTime = System.nanoTime();
         return (endTime - startTime) / 1_000_000_000.0; // Возвращаем время в секундах
     }
-
+ 
     private static double MultiThread() {
         long startTime = System.nanoTime();
         double[] array = new double[ARRAY_SIZE];
