@@ -3,13 +3,20 @@ package ru.gpncr.october.http.server;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class HttpServer {
+
+    private static final int POOL_SIZE = 10;
+
     private int port;
     private Dispatcher dispatcher;
+    ExecutorService threadPool;
 
     public HttpServer(int port) {
         this.port = port;
+        this.threadPool = Executors.newFixedThreadPool(POOL_SIZE);
         this.dispatcher = new Dispatcher();
     }
 
@@ -23,7 +30,7 @@ public class HttpServer {
                 int n = socket.getInputStream().read(buffer);
                 String rawRequest = new String(buffer, 0, n);
                 System.out.println(rawRequest);
-                new Thread(() -> {
+                threadPool.submit(() -> {
                     try {
                         HttpRequest request = new HttpRequest(rawRequest, socket);
                         request.info(true);
@@ -31,7 +38,7 @@ public class HttpServer {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                }).start();
+                });
             }
         } catch (IOException e) {
             e.printStackTrace();
